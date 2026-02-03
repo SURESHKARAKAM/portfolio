@@ -1,25 +1,27 @@
 :root {
-  /* Colors */
-  --bg-primary: #050a14;
-  --bg-secondary: #0a0f1c; /* Slightly lighter for cards */
-  --bg-tertiary: #111827;
-  
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --text-accent: #38bdf8;
-  
-  --primary: #00f3ff; /* Cyan - Agentic feel */
-  --secondary: #9d00ff; /* Purple - AI feel */
-  --accent: #22d3ee;
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  --gradient-text: linear-gradient(to right, #00f3ff, #9d00ff);
-  
+  /* Modern Dark Theme with Vibrant Accents */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #131318;
+  --bg-tertiary: #1a1a24;
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #9ca3af;
+
+  /* Vibrant Gradient Colors */
+  --primary: #3b82f6;
+  /* Blue */
+  --secondary: #8b5cf6;
+  /* Purple */
+  --accent: #06b6d4;
+  /* Cyan */
+
+  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  --gradient-text: linear-gradient(to right, #60a5fa, #a78bfa);
+
   /* Fonts */
   --font-heading: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
-  
+
   /* Spacing */
   --container-width: 1200px;
   --header-height: 80px;
@@ -40,7 +42,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
@@ -74,13 +81,6 @@ button {
   display: inline-block;
 }
 
-.glass-card {
-  background: rgba(16, 23, 42, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
 .section-padding {
   padding: 5rem 0;
 }
@@ -89,13 +89,16 @@ button {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #475569;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #64748b;
 }

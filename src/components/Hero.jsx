@@ -1,123 +1,149 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Database, Bot, Cpu } from 'lucide-react';
+import { ArrowRight, MapPin, Briefcase, Mail, Linkedin, Github } from 'lucide-react';
 import { resumeData } from '../data';
 
 const Hero = () => {
     return (
-        <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <section id="home" className="min-h-screen flex items-center justify-center pt-20 pb-16 relative overflow-hidden">
+            {/* Subtle background gradients */}
+            <div className="absolute inset-0 bg-gradient-to-b from-blue-600/3 via-transparent to-purple-600/3"></div>
+            <div className="absolute top-40 right-20 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-40 left-20 w-80 h-80 bg-purple-500/5 rounded-full blur-3xl"></div>
 
-            {/* Background Elements */}
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-purple-500/10 rounded-full blur-[100px] pointer-events-none" />
-
-            <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-
-                {/* Text Content */}
+            <div className="container mx-auto px-6 max-w-6xl relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-center"
                 >
-                    <div className="inline-block px-3 py-1 mb-4 border border-primary/30 rounded-full bg-primary/5 text-primary text-sm font-medium">
-                        Available for New Projects
-                    </div>
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                        Building the Future with <br />
-                        <span className="text-gradient">Agentic AI</span>
-                    </h1>
-                    <p className="text-xl text-gray-400 mb-8 max-w-lg">
-                        I architect autonomous AI agents and scalable data pipelines on Azure to solve complex enterprise challenges.
-                    </p>
+                    {/* Animated Badge */}
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm mb-6 backdrop-blur-sm"
+                    >
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        Available for New Opportunities
+                    </motion.div>
 
-                    <div className="flex flex-wrap gap-4">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+                    >
+                        Hi, I'm <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">{resumeData.name}</span>
+                    </motion.h1>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="text-2xl md:text-3xl text-gray-300 mb-4 font-medium"
+                    >
+                        {resumeData.title}
+                    </motion.p>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                        className="text-lg text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed"
+                    >
+                        {resumeData.summary}
+                    </motion.p>
+
+                    {/* Quick Info */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 }}
+                        className="flex flex-wrap justify-center gap-6 mb-10 text-sm text-gray-400"
+                    >
+                        <div className="flex items-center gap-2">
+                            <MapPin size={16} className="text-blue-400" />
+                            <span>Hyderabad, India</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Briefcase size={16} className="text-purple-400" />
+                            <span>Accenture</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Mail size={16} className="text-green-400" />
+                            <a href={`mailto:${resumeData.email}`} className="hover:text-white transition-colors">{resumeData.email}</a>
+                        </div>
+                    </motion.div>
+
+                    {/* CTA Buttons */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.7 }}
+                        className="flex flex-wrap justify-center gap-4 mb-12"
+                    >
                         <a
                             href="#projects"
-                            className="px-8 py-3 rounded-full bg-white text-black font-bold hover:bg-gray-200 transition-colors flex items-center gap-2"
+                            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all inline-flex items-center gap-2 group"
                         >
-                            View Work <ArrowRight size={20} />
+                            View My Work
+                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                         </a>
                         <a
                             href="#contact"
-                            className="px-8 py-3 rounded-full border border-gray-700 text-white hover:border-primary hover:text-primary transition-colors"
+                            className="px-8 py-4 border-2 border-gray-700 rounded-lg text-white font-semibold hover:border-blue-500 hover:text-blue-400 transition-all"
                         >
-                            Contact Me
+                            Get In Touch
                         </a>
-                    </div>
-                </motion.div>
-
-                {/* Visual Element */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="relative hidden md:block"
-                >
-                    <div className="relative z-10 w-full h-[500px] bg-gradient-to-br from-gray-900 to-black rounded-2xl border border-gray-800 p-6 flex flex-col justify-between glass-card hover:border-primary/50 transition-colors duration-500">
-                        {/* Mock Terminal/Dashboard UI */}
-                        <div className="flex items-center gap-2 mb-4 border-b border-gray-800 pb-4">
-                            <div className="w-3 h-3 rounded-full bg-red-500" />
-                            <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                            <div className="w-3 h-3 rounded-full bg-green-500" />
-                            <span className="ml-auto text-xs text-gray-500">agent_orchestrator.py</span>
-                        </div>
-
-                        <div className="space-y-4 font-mono text-sm">
-                            <div className="flex gap-3 text-gray-400">
-                                <span className="text-green-400">➜</span>
-                                <span>Initializing Azure OpenAI Client...</span>
-                            </div>
-                            <div className="flex gap-3 text-gray-400">
-                                <span className="text-green-400">➜</span>
-                                <span>Connecting to Vector Store (Unity Catalog)...</span>
-                            </div>
-                            <div className="flex gap-3 text-gray-400">
-                                <span className="text-green-400">✓</span>
-                                <span className="text-white">Agent memory loaded.</span>
-                            </div>
-                            <div className="flex gap-3 text-gray-400">
-                                <span className="text-blue-400">ℹ</span>
-                                <span>Reasoning engine started. Detected intent: </span>
-                                <span className="text-primary">"Optimize Pipeline"</span>
-                            </div>
-
-                            <div className="mt-8 p-4 bg-gray-900/50 rounded border border-gray-800">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <Bot className="text-purple-400" size={18} />
-                                    <span className="text-purple-400 font-bold">Orchestrator Agent</span>
-                                </div>
-                                <p className="text-gray-300">Analyzing data lineage... An 40% efficiency gain is possible by optimizing the Silver-to-Gold transformation using broadcast joins.</p>
-                            </div>
-                        </div>
-
-                        <div className="mt-auto flex justify-between text-xs text-gray-500 pt-4 border-t border-gray-800">
-                            <div className="flex items-center gap-2">
-                                <Database size={14} /> Azure Data Lake
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <Cpu size={14} /> GPT-4o
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Floating Icons */}
-                    <motion.div
-                        animate={{ y: [0, -20, 0] }}
-                        transition={{ repeat: Infinity, duration: 4 }}
-                        className="absolute -top-10 -right-10 w-20 h-20 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center z-20 shadow-2xl"
-                    >
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" className="w-10 h-10" />
-                    </motion.div>
-                    <motion.div
-                        animate={{ y: [0, 20, 0] }}
-                        transition={{ repeat: Infinity, duration: 5, delay: 1 }}
-                        className="absolute -bottom-10 -left-10 w-20 h-20 rounded-xl bg-gray-900 border border-gray-800 flex items-center justify-center z-20 shadow-2xl"
-                    >
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" className="w-10 h-10" />
                     </motion.div>
 
+                    {/* Social Links */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.8 }}
+                        className="flex justify-center gap-6"
+                    >
+                        <a
+                            href={resumeData.socials.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-gray-800/50 rounded-lg hover:bg-blue-600 transition-colors group"
+                        >
+                            <Linkedin size={24} className="text-gray-400 group-hover:text-white transition-colors" />
+                        </a>
+                        <a
+                            href={resumeData.socials.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="p-3 bg-gray-800/50 rounded-lg hover:bg-gray-700 transition-colors group"
+                        >
+                            <Github size={24} className="text-gray-400 group-hover:text-white transition-colors" />
+                        </a>
+                    </motion.div>
                 </motion.div>
             </div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, repeat: Infinity, duration: 1.5 }}
+                className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+            >
+                <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
+                    <motion.div
+                        animate={{ y: [0, 12, 0] }}
+                        transition={{ repeat: Infinity, duration: 1.5 }}
+                        className="w-1.5 h-3 bg-blue-500 rounded-full mt-2"
+                    />
+                </div>
+            </motion.div>
         </section>
     );
 };
